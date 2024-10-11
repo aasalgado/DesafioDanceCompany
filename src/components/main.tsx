@@ -5,6 +5,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import AutoplayCarousel from "@/components/AutoplayCarousel";
 import ContactForm from "@/components/ContactForm";
 import Header from "@/components/Header";
+import InstaFeed from "@/components/InstagramFeed";
 
 export function Main() {
   return (
@@ -185,53 +186,7 @@ export function Main() {
           </div>
         </div>
       </section>
-      <section id="instagram" className="py-20 bg-muted">
-        <div className="container px-4 md:px-6">
-          <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tight">
-              Follow Us on Instagram
-            </h2>
-            <p className="text-muted-foreground">
-              Stay up-to-date with our latest performances and behind-the-scenes
-              moments.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-10">
-            <img
-              src="/placeholder.svg"
-              width={300}
-              height={300}
-              alt="Instagram Post 1"
-              className="rounded-xl object-cover"
-              style={{ aspectRatio: "300/300", objectFit: "cover" }}
-            />
-            <img
-              src="/placeholder.svg"
-              width={300}
-              height={300}
-              alt="Instagram Post 2"
-              className="rounded-xl object-cover"
-              style={{ aspectRatio: "300/300", objectFit: "cover" }}
-            />
-            <img
-              src="/placeholder.svg"
-              width={300}
-              height={300}
-              alt="Instagram Post 3"
-              className="rounded-xl object-cover"
-              style={{ aspectRatio: "300/300", objectFit: "cover" }}
-            />
-            <img
-              src="/placeholder.svg"
-              width={300}
-              height={300}
-              alt="Instagram Post 4"
-              className="rounded-xl object-cover"
-              style={{ aspectRatio: "300/300", objectFit: "cover" }}
-            />
-          </div>
-        </div>
-      </section>
+      <InstaFeed />
       <section id="contact" className="py-20 bg-background">
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-6">
           <div className="space-y-4">

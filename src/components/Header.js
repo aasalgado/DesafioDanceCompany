@@ -26,11 +26,11 @@ export default function Header() {
               Home
             </Link>
             <Link
-              href="/#performances"
+              href="testimonials"
               className="text-sm font-medium hover:text-primary"
               prefetch={false}
             >
-              Performances
+              Testimonials
             </Link>
             <Link
               href="instructors"
@@ -51,7 +51,7 @@ export default function Header() {
               className="text-sm font-medium hover:text-primary"
               prefetch={false}
             >
-              Schedule
+              Class Schedule
             </Link>
           </nav>
           <Button className="hidden md:inline-flex ml-20">Join Us</Button>

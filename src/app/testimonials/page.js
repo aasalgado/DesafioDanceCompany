@@ -1,41 +1,28 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export default function Instructors() {
+export default function Testimonials() {
   return (
     <div className="flex flex-col min-h-dvh">
       <Header />
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container">
           <h2 className="text-3xl font-bold mb-12 text-center">
-            Our Instructors
+            Testimonials
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <img
-              src="/images/instructors/luis-instructor.png"
+              src="/images/testimonials/luis-testimonial.png"
               width={650}
               height={650}
               alt="Instructor"
               className="aspect-square object-cover rounded-md"
             />
             <div className="flex flex-col items-center justify-center space-y-4">
-              <h3 className="text-2xl font-bold">Luis</h3>
+              <h3 className="text-2xl font-bold">Luis "Torta Pounder" Rosa</h3>
               <p className="text-muted-foreground">
-                Luis Alberto, along with his partner/wife Jess Sheppard, is the
-                co-founder and co-director of Desafio Dance Company. They are
-                salsa/bachata instructors, performers and competitors. He has
-                performed/taught in countless congresses across the US,
-                including: Reno Latin Dance Fest, San Francisco SFSBK, Orlando
-                Salsa Congress, Chicago Salsa International Congress,
-                Bachateando, Atlanta Salsa Bachata Festival, etc. He is always
-                training for competition and to improve in his profession.
-              </p>
-              <p className="text-muted-foreground">
-                His titles include: 2020/2021 World Salsa Summit Pro Bachata
-                Classic Finalist, 2019 World Salsa Summit Rising Star Bachata
-                Champion (1st Place), 2019 LA Top Social Dancer in the
-                Professional Category at the Annual La Granada Competition, 2018
-                World Latin Dance Cup Am Male Salsa Soloist (3rd place).
+                Desafio has changed my life! I have been getting so many bitches since I joined the Desafio team.
+                All thanks to Luis & Jess!
               </p>
             </div>
           </div>

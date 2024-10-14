@@ -8,7 +8,7 @@ export default function InstaFeed() {
     async function fetchInstagramImages() {
       try {
         const response = await fetch(
-          `https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,permalink&access_token=IGQWRPMU5ZAUWxQemVDYUJ2N0ZAnSzhJRmwyZAHhNdEM5bVdpMlJTLUtDNXp0cmRlQkhRaDk4SUpvbENvUGc5dzNvRkFEOGlISWp2RG1CVmEycThvbGZAVUGpkanhPVHA1aG5yQ2xmbE5EcFY3TGg5Uk5Jc0g4NWdEQlUZD`
+          `https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,permalink&access_token=IGQWROR1FiRGYxZAkpVaWhGZAV93R0JrU29CeXJvRG1lVE1qUG9SekN1WEM3ZAzF5OWVzckY5R0ZAmV0NIQlVOcy1tYzBybmd5S2ZAPLWdKVFJtOWVkSmN6aFBzaW11ZATBRWVZAnMF9zcEN5ZAmF1aWxfUlNUYmF5azVtbEkZD`
         );
         const data = await response.json();
         const firstFiveMedia = data.data.slice(0, 3);

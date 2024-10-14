@@ -47,7 +47,7 @@ export default function Header() {
               Contact
             </Link>
             <Link
-              href="#"
+              href="class-schedule"
               className="text-sm font-medium hover:text-primary"
               prefetch={false}
             >

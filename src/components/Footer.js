@@ -10,7 +10,8 @@ export default function Footer() {
           <WhiteLogo />
         </div>
         <div className="space-y-2">
-          <div>1122 E Washington Blvd Suite B, Montebello, CA 90640</div>
+          <div>1122 E Washington Blvd Suite B,</div>
+          <div>Montebello, CA 90640</div>
           <div>info@desafiodance.com</div>
           <div>(404) 408-6656</div>
         </div>

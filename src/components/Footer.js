@@ -1,8 +1,11 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground py-8 sm:py-12">
+    <footer
+      className="bg-primary text-primary-foreground py-8 sm:py-12"
+      id="contact"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div className="flex items-center gap-2">
           {/* <DrumIcon className="h-8 w-8" />
@@ -36,10 +39,13 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-        <div className="text-right sm:col-span-2 lg:col-span-1">&copy; 2024 Desafio Dance Company. <br/>All rights reserved.</div>
+        <div className="text-right sm:col-span-2 lg:col-span-1">
+          &copy; 2024 Desafio Dance Company. <br />
+          All rights reserved.
+        </div>
       </div>
     </footer>
-  )
+  );
 }
 
 function DrumIcon(props) {
@@ -64,9 +70,8 @@ function DrumIcon(props) {
       <path d="M17 13.4v7.9" />
       <path d="M2 9v8a10 5 0 0 0 20 0V9" />
     </svg>
-  )
+  );
 }
-
 
 function InstagramIcon(props) {
   return (
@@ -86,9 +91,8 @@ function InstagramIcon(props) {
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
     </svg>
-  )
+  );
 }
-
 
 function YoutubeIcon(props) {
   return (
@@ -107,7 +111,7 @@ function YoutubeIcon(props) {
       <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
       <path d="m10 15 5-3-5-3z" />
     </svg>
-  )
+  );
 }
 
 function WhiteLogo() {

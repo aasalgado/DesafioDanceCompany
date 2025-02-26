@@ -8,11 +8,11 @@ export default function InstaFeed() {
     async function fetchInstagramImages() {
       try {
         const response = await fetch(
-          `https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,permalink&access_token=IGQWROR1FiRGYxZAkpVaWhGZAV93R0JrU29CeXJvRG1lVE1qUG9SekN1WEM3ZAzF5OWVzckY5R0ZAmV0NIQlVOcy1tYzBybmd5S2ZAPLWdKVFJtOWVkSmN6aFBzaW11ZATBRWVZAnMF9zcEN5ZAmF1aWxfUlNUYmF5azVtbEkZD`
+          `https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,permalink&access_token=IGQWROLWFLMjVmMUlWVldGSnFqRG1fSDFEOXlNQUs4QXNWeGNaQ3gtVjlFYV9hNEdxUjBpLWZAtTFVDQzZABbngwaTc3NFBFR2xPSmUzM2h5SFc5VGZAGWVZAjbWM4enJiTFpka19CN0NTOHcwZA0lTSks2N1g0a2dMNm8ZD`
         );
         const data = await response.json();
-        const firstFiveMedia = data.data.slice(0, 3);
-        firstFiveMedia.push(data.data[4]);
+        const firstFiveMedia = data.data.slice(0, 4);
+        // firstFiveMedia.push(data.data[4]);
         setImages(firstFiveMedia); // assuming data.data is the array of media items
       } catch (error) {
         console.error("Error fetching Instagram images:", error);
@@ -26,11 +26,11 @@ export default function InstaFeed() {
       <div className="container px-4 md:px-6">
         <div className="space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tight">
-            Follow Us on Instagram
+            Follow Us On Instagram
           </h2>
           <p className="text-muted-foreground">
-            Stay up-to-date with our latest performances and behind-the-scenes
-            moments.
+            Stay Up-To-Date With Our Latest Performances And Behind-The-Scenes
+            Moments.
           </p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-10">

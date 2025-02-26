@@ -1,0 +1,24 @@
+/* For screens larger than 640px */
+@media (min-width: 640px) {
+  .topBar {
+    max-width: 640px;
+  }
+}
+
+/* For screens larger than 768px */
+@media (min-width: 768px) {
+  .topBar {
+    max-width: 768px;
+  }
+}
+
+/* For screens larger than 1024px */
+@media (min-width: 1024px) {
+  .topBar {
+    max-width: 1024px;
+  }
+}
+
+.topBar {
+  width: 100%; /* Ensure it stretches across the screen */
+}

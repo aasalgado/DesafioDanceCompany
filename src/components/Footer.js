@@ -3,24 +3,22 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer
-      className="bg-primary text-primary-foreground py-8 sm:py-12"
+      className="bg-primary text-primary-foreground py-8 sm:py-12 min-h-[85dvh] sm:min-h-0"
       id="contact"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div className="flex items-center gap-2">
-          {/* <DrumIcon className="h-8 w-8" />
-          <span className="text-xl font-bold">Dance Studio</span> */}
+        <div className="flex items-center justify-center sm:justify-start gap-2">
           <WhiteLogo />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-0 sm:space-y-2 flex flex-col items-center sm:items-start">
           <div>1122 E Washington Blvd Suite B,</div>
           <div>Montebello, CA 90640</div>
           <div>info@desafiodance.com</div>
           <div>(404) 408-6656</div>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 flex flex-col items-center sm:items-start">
           <div>Follow us:</div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 justify-center sm:justify-start">
             <Link
               href="https://www.instagram.com/desafio.dance.company/"
               aria-label="Instagram"
@@ -39,37 +37,12 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-        <div className="text-right sm:col-span-2 lg:col-span-1">
+        <div className="text-center sm:text-right col-span-1 sm:col-span-2 lg:col-span-1">
           &copy; 2024 Desafio Dance Company. <br />
           All rights reserved.
         </div>
       </div>
     </footer>
-  );
-}
-
-function DrumIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m2 2 8 8" />
-      <path d="m22 2-8 8" />
-      <ellipse cx="12" cy="9" rx="10" ry="5" />
-      <path d="M7 13.4v7.9" />
-      <path d="M12 14v8" />
-      <path d="M17 13.4v7.9" />
-      <path d="M2 9v8a10 5 0 0 0 20 0V9" />
-    </svg>
   );
 }
 

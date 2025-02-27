@@ -22,3 +22,11 @@
 .topBar {
   width: 100%; /* Ensure it stretches across the screen */
 }
+
+.white-btn button {
+  color: #fff;
+}
+
+.white-btn button:hover {
+  color: #000; /* Optionally add a hover color change */
+}

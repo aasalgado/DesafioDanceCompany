@@ -6,7 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState(null);
 
@@ -83,28 +87,13 @@ const ContactForm = () => {
           required
         />
       </div>
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Sending..." : "Send Message"}
-      </Button>
+      <div className="flex justify-center sm:justify-start">
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Send Message"}
+        </Button>
+      </div>
       {responseMessage && <p>{responseMessage}</p>}
     </form>
-//     <>
-//     <div className="grid grid-cols-2 gap-4">
-//     <div>
-//       <Label htmlFor="name">Name</Label>
-//       <Input id="name" placeholder="Your name" />
-//     </div>
-//     <div>
-//       <Label htmlFor="email">Email</Label>
-//       <Input id="email" type="email" placeholder="Your email" />
-//     </div>
-//   </div>
-//   <div>
-//     <Label htmlFor="message">Message</Label>
-//     <Textarea id="message" placeholder="Your message" rows={5} />
-//   </div>
-//   <Button type="submit">Send Message</Button> 
-//   </>
   );
 };
 

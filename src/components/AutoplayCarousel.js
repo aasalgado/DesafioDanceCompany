@@ -22,49 +22,44 @@ const AutoplayCarousel = () => {
       onMouseLeave={autoplayPlugin.current.reset}
     >
       <CarouselContent>
-        <CarouselItem className="basis-1/2">
+        <CarouselItem className="basis-full sm:basis-1/2">
           <iframe
             src="https://drive.google.com/file/d/1tGDDlq9K6fl-cWr_xEku4YIrBXekDUX1/preview"
-            width="540"
-            height="380"
+            className="w-full h-[calc(100vw*9/16)] sm:h-[380px] sm:w-[540px]"
             allow="autoplay"
           ></iframe>
         </CarouselItem>
-        <CarouselItem className="basis-1/2">
+        <CarouselItem className="basis-full sm:basis-1/2">
           <iframe
             src="https://drive.google.com/file/d/10uzx865-jg5reCuXdAtZN-ZWwcEeVY6x/preview"
-            width="540"
-            height="380"
+            className="w-full h-[calc(100vw*9/16)] sm:h-[380px] sm:w-[540px]"
             allow="autoplay"
           ></iframe>
         </CarouselItem>
-        <CarouselItem className="basis-1/2 pl-2 md:pl-4">
+        <CarouselItem className="basis-full sm:basis-1/2">
           <iframe
             src="https://drive.google.com/file/d/1wbvg_zBAwXpDEeWRy3GpwUHFJ3oI226f/preview"
-            width="540"
-            height="380"
+            className="w-full h-[calc(100vw*9/16)] sm:h-[380px] sm:w-[540px]"
             allow="autoplay"
           ></iframe>
         </CarouselItem>
-        <CarouselItem className="basis-1/2 pl-2 md:pl-4">
+        <CarouselItem className="basis-full sm:basis-1/2">
           <iframe
             src="https://drive.google.com/file/d/1PuwRkbGwGE-tfmJiL9DbXMiIis5xN8oN/preview"
-            width="540"
-            height="380"
+            className="w-full h-[calc(100vw*9/16)] sm:h-[380px] sm:w-[540px]"
             allow="autoplay"
           ></iframe>
         </CarouselItem>
-        <CarouselItem className="basis-1/2 pl-2 md:pl-4">
+        <CarouselItem className="basis-full sm:basis-1/2">
           <iframe
             src="https://drive.google.com/file/d/1aDq3y89nkVbW0Zeu8umm7dgh13Qi-uVh/preview"
-            width="540"
-            height="380"
+            className="w-full h-[calc(100vw*9/16)] sm:h-[380px] sm:w-[540px]"
             allow="autoplay"
           ></iframe>
         </CarouselItem>
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="hidden md:block" />
+      <CarouselNext className="hidden md:block" />
     </Carousel>
   );
 };
@@ -76,11 +71,15 @@ const BannerCarousel = () => {
 
   return (
     <section id="banner" className="bg-muted">
-      <Carousel plugins={[autoplayPlugin.current]} opts={{ loop: true }}>
+      <Carousel
+        plugins={[autoplayPlugin.current]}
+        opts={{ loop: true }}
+        className="h-[47dvh] sm:h-auto"
+      >
         {/* Carousel container, using flex and controlling item width -- bg-primary */}
         <CarouselContent>
           {/* Adjust width of CarouselItem to show multiple items */}
-          <CarouselItem className="flex basis-1/4 sm:basis-1/3 lg:basis-1/5 justify-center items-center">
+          <CarouselItem className="flex justify-center items-center basis-1/2 sm:basis-1/3 lg:basis-1/5">
             <img
               src="/images/partners/StandingOCosmetics_BlackOnWhite.png"
               alt="Image 1"
@@ -89,7 +88,7 @@ const BannerCarousel = () => {
               className="object-cover rounded-xl "
             />
           </CarouselItem>
-          <CarouselItem className="flex justify-center items-center basis-1/4 sm:basis-1/3 lg:basis-1/5">
+          <CarouselItem className="flex justify-center items-center basis-1/2 sm:basis-1/3 lg:basis-1/5">
             <img
               src="/images/partners/logo-black.png"
               alt="Image 3"
@@ -98,7 +97,7 @@ const BannerCarousel = () => {
               className="object-cover rounded-xl"
             />
           </CarouselItem>
-          <CarouselItem className="flex justify-center items-center basis-1/4 sm:basis-1/3 lg:basis-1/5">
+          <CarouselItem className="flex justify-center items-center basis-1/2 sm:basis-1/3 lg:basis-1/5">
             <img
               src="/images/partners/YAMILOGO.png"
               alt="Image 2"
@@ -107,7 +106,7 @@ const BannerCarousel = () => {
               className="object-cover rounded-xl"
             />
           </CarouselItem>
-          <CarouselItem className="flex justify-center items-center basis-1/4 sm:basis-1/3 lg:basis-1/5">
+          <CarouselItem className="flex justify-center items-center basis-1/2 sm:basis-1/3 lg:basis-1/5">
             <img
               src="/images/partners/logo-black.png"
               alt="Image 3"
@@ -116,7 +115,7 @@ const BannerCarousel = () => {
               className="object-cover rounded-xl"
             />
           </CarouselItem>
-          <CarouselItem className="flex justify-center items-center basis-1/4 sm:basis-1/3 lg:basis-1/5">
+          <CarouselItem className="flex justify-center items-center basis-1/2 sm:basis-1/3 lg:basis-1/5">
             <img
               src="/images/partners/StandingOCosmetics_BlackOnWhite.png"
               alt="Image 4"
@@ -125,7 +124,7 @@ const BannerCarousel = () => {
               className="object-cover rounded-xl"
             />
           </CarouselItem>
-          <CarouselItem className="flex justify-center items-center basis-1/4 sm:basis-1/3 lg:basis-1/5">
+          <CarouselItem className="flex justify-center items-center basis-1/2 sm:basis-1/3 lg:basis-1/5">
             <img
               src="/images/partners/logo-black.png"
               alt="Image 3"
@@ -134,7 +133,7 @@ const BannerCarousel = () => {
               className="object-cover rounded-xl"
             />
           </CarouselItem>
-          <CarouselItem className="flex justify-center items-center basis-1/4 sm:basis-1/3 lg:basis-1/5">
+          <CarouselItem className="flex justify-center items-center basis-1/2 sm:basis-1/3 lg:basis-1/5">
             <img
               src="/images/partners/YAMILOGO.png"
               alt="Image 5"
@@ -143,7 +142,7 @@ const BannerCarousel = () => {
               className="object-cover rounded-xl"
             />
           </CarouselItem>
-          <CarouselItem className="flex justify-center items-center basis-1/4 sm:basis-1/3 lg:basis-1/5">
+          <CarouselItem className="flex justify-center items-center basis-1/2 sm:basis-1/3 lg:basis-1/5">
             <img
               src="/images/partners/logo-black.png"
               alt="Image 6"

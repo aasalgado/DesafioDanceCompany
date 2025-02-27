@@ -3,8 +3,9 @@ import ContactForm from "@/components/ContactForm";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="pt-20 bg-background">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-6">
+        {/* Left Column (50% width on larger screens) */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
           <p className="text-muted-foreground">
@@ -14,7 +15,9 @@ export default function ContactSection() {
           </p>
           <ContactForm />
         </div>
-        <div className="flex justify-between w-full">
+
+        {/* Right Column (50% width on larger screens, centered vertically) */}
+        <div className="flex justify-center items-center w-full md:h-full">
           <div className="flex flex-col items-center">
             <h2 className="text-3xl font-bold tracking-tight">Contact</h2>
             <h3 className="text-lg font-bold mt-4">Address:</h3>
@@ -46,16 +49,17 @@ export default function ContactSection() {
               </Link>
             </div>
           </div>
-          <div className="w-1/2">
-            <iframe
-              src="https://www.google.com/maps/embed/v1/place?q=1122+E+Washington+Blvd+Suite+B,+Montebello,+CA+90640&key=AIzaSyDpnPpFkLW5Bf5TfbJ2_0CPG_8hBIo1st0"
-              width="400"
-              height="350"
-              style={{ border: "0" }}
-              aria-hidden="false"
-            ></iframe>
-          </div>
         </div>
+      </div>
+
+      <div className="w-full mt-5">
+        <iframe
+          src={`https://www.google.com/maps/embed/v1/place?q=1122+E+Washington+Blvd+Suite+B,+Montebello,+CA+90640&key=${process.env.GOOGLE_MAPS_KEY}`}
+          height="400"
+          className="w-full h-[100dvh] sm:h-64 md:h-96" // Full width, responsive height
+          style={{ border: "0" }}
+          aria-hidden="false"
+        ></iframe>
       </div>
     </section>
   );

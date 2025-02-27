@@ -11,14 +11,6 @@ export default function Header() {
       >
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
           <Logo />
-          {/* <img
-              src="/images/logo-black.png"
-              width={200}
-              height={100}
-              alt="Desafio Dance Company Logo"
-              className="rounded-xl object-cover"
-              style={{ aspectRatio: "auto", objectFit: "cover" }}
-            /> */}
         </Link>
         <nav className="hidden md:flex items-center gap-16">
           <Link
@@ -28,13 +20,6 @@ export default function Header() {
           >
             Home
           </Link>
-          {/* <Link
-              href="testimonials"
-              className="text-sm font-medium hover:text-primary"
-              prefetch={false}
-            >
-              Testimonials
-            </Link> */}
           <Link
             href="instructors"
             className="text-sm font-medium hover:text-primary"
@@ -57,7 +42,6 @@ export default function Header() {
             Class Schedule
           </Link>
         </nav>
-        {/* <Button className="hidden md:inline-flex ml-20">Join Us</Button> */}
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="md:hidden">
@@ -66,38 +50,37 @@ export default function Header() {
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="w-full max-w-xs bg-background p-6 shadow-lg"
+            className={`w-full max-w-xs bg-background p-6 pt-10 shadow-lg ${styles["white-btn"]}`}
           >
             <div className="flex flex-col gap-4">
               <Link
-                href="#"
-                className="text-sm font-medium hover:text-primary"
+                href="/"
+                className="text-sm font-medium text-white hover:text-primary"
                 prefetch={false}
               >
-                About
+                Home
               </Link>
               <Link
-                href="#"
-                className="text-sm font-medium hover:text-primary"
+                href="instructors"
+                className="text-sm font-medium text-white hover:text-primary"
                 prefetch={false}
               >
-                Performances
+                Instructors
               </Link>
               <Link
-                href="#"
-                className="text-sm font-medium hover:text-primary"
-                prefetch={false}
-              >
-                Dancers
-              </Link>
-              <Link
-                href="#"
-                className="text-sm font-medium hover:text-primary"
+                href="#contact"
+                className="text-sm font-medium text-white hover:text-primary"
                 prefetch={false}
               >
                 Contact
               </Link>
-              <Button className="w-full">Join Us</Button>
+              <Link
+                href="class-schedule"
+                className="text-sm font-medium text-white hover:text-primary"
+                prefetch={false}
+              >
+                Class Schedule
+              </Link>
             </div>
           </SheetContent>
         </Sheet>

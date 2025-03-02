@@ -22,53 +22,57 @@ export default function InstaFeed() {
   }, []);
 
   return (
-    <section id="instagram" className="py-20 bg-muted">
-      <div className="container px-4 md:px-6">
-        <div className="space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight">
-            Follow Us On Instagram
-          </h2>
-          <p className="text-muted-foreground">
-            Stay Up-To-Date With Our Latest Performances And Behind-The-Scenes
-            Moments.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-10">
-          {images.map((image) => (
-            <div key={image.id} className="instagram-post">
-              {image.media_type === "IMAGE" && (
-                <a
-                  href={image.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    key={image.id}
-                    src={image.media_url}
-                    alt={image.caption || "Instagram image"}
-                    width={350}
-                    height={350}
-                    className="rounded-xl object-cover"
-                    style={{ aspectRatio: "350/350", objectFit: "cover" }}
-                  />
-                </a>
-              )}
-              {image.media_type === "VIDEO" && (
-                <video
-                  key={image.id}
-                  src={image.media_url}
-                  controls
-                  width={350}
-                  height={350}
-                  className="rounded-xl object-cover"
-                  style={{ aspectRatio: "350/350", objectFit: "cover" }}
-                />
-              )}
+    <>
+      {images.length > 0 && (
+        <section id="instagram" className="py-20 bg-muted">
+          <div className="container px-4 md:px-6">
+            <div className="space-y-4 text-center">
+              <h2 className="text-3xl font-bold tracking-tight">
+                Follow Us On Instagram
+              </h2>
+              <p className="text-muted-foreground">
+                Stay Up-To-Date With Our Latest Performances And
+                Behind-The-Scenes Moments.
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-10">
+              {images.map((image) => (
+                <div key={image.id} className="instagram-post">
+                  {image.media_type === "IMAGE" && (
+                    <a
+                      href={image.permalink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        key={image.id}
+                        src={image.media_url}
+                        alt={image.caption || "Instagram image"}
+                        width={350}
+                        height={350}
+                        className="rounded-xl object-cover"
+                        style={{ aspectRatio: "350/350", objectFit: "cover" }}
+                      />
+                    </a>
+                  )}
+                  {image.media_type === "VIDEO" && (
+                    <video
+                      key={image.id}
+                      src={image.media_url}
+                      controls
+                      width={350}
+                      height={350}
+                      className="rounded-xl object-cover"
+                      style={{ aspectRatio: "350/350", objectFit: "cover" }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   );
 }
 

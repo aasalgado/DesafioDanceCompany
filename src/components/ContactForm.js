@@ -32,7 +32,7 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      // const result = await response.json(); // Uncomment when needed later
 
       if (response.ok) {
         setResponseMessage("Message sent successfully!");

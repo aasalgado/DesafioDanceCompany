@@ -10,7 +10,7 @@ export default function ContactSection() {
           <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
           <p className="text-muted-foreground">
             Have questions or want to learn more about Desafio Dance Company?
-            Fill out the form below and we'll get back to you as soon as
+            Fill out the form below and we&apos;ll get back to you as soon as
             possible.
           </p>
           <ContactForm />

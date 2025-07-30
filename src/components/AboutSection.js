@@ -5,17 +5,16 @@ export default function ContactSection() {
         <div className="space-y-4">
           <h2 className="text-3xl font-bold tracking-tight">About Desafio</h2>
           <p className="text-muted-foreground">
-            {/* Desafio Dance Company is a renowned dance troupe that has been
-              captivating audiences for over a decade. Our talented dancers
-              blend classical and contemporary styles to create breathtaking
-              performances that inspire and move. Join us on a journey of
-              artistic expression and discover the power of dance. */}
-            Our goal is to create an environment that nurtures growth,
-            encouraging each student to strive for their own personal
-            excellence. Beyond choreo retention and stage training, we aim to
-            develop our students into dancers. Lastly, we seek to encourage each
-            student to challenge themselves in dance and in life, creating a
-            culture of confidence and personal accomplishment.
+            At Desafío Dance Company, our mission is to inspire and guide people
+            of all ages and abilities through the art of dance. As the premier
+            studio for salsa and bachata classes in Montebello, CA, we offer a
+            space where social dancing, performing on stage, and competing at a
+            high level are equally valued. With a focus on excellence,
+            community, and personal development, we challenge each student to
+            push their limits—not only in dance but in life. Our goal is to
+            create a culture of self-discovery and accomplishment that extends
+            beyond the studio, fostering a sense of belonging and growth for
+            every individual.
           </p>
           {/* <Button>Learn More</Button> */}
         </div>

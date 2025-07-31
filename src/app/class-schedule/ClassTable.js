@@ -22,14 +22,14 @@ export default function ClassTable({ addClass, removeClass }) {
       time: "8:30 PM",
     },
     {
-      className: "Salsa Basics/Beginners",
+      className: "Salsa On2 Basics/Beginners",
       instructors: "Marco & Marylou",
       price: 20,
       day: "Thursday",
       time: "7:30 PM",
     },
     {
-      className: "Salsa Intermediate",
+      className: "Salsa On2 Intermediate",
       instructors: "Luis & Jess",
       price: 20,
       day: "Thursday",

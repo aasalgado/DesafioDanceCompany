@@ -9,10 +9,10 @@ export default function ClassSchedule() {
   const [selectedClasses, setSelectedClasses] = useState([]);
 
   // Add a class to the selectedClasses array
-  const addClass = (className, price) => {
+  const addClass = (className, price, date) => {
     setSelectedClasses((prevClasses) => [
       ...prevClasses,
-      { className, price }, // Add new class to the selected classes array
+      { className, price, date }, // Add new class to the selected classes array
     ]);
   };
 

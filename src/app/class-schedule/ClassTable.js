@@ -1,7 +1,18 @@
+"use client";
+import { useState } from "react";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "@/components/ui/popover";
+import { format } from "date-fns";
+
 export default function ClassTable({ addClass, removeClass }) {
   const classPrices = [
     {
       className: "Bachata Basics/Beginners",
+      classType: "Bachata",
       instructors: "Luis & Jess",
       price: 20,
       day: "Tuesday",
@@ -9,6 +20,7 @@ export default function ClassTable({ addClass, removeClass }) {
     },
     {
       className: "Bachata Intermediate",
+      classType: "Bachata",
       instructors: "Luis & Jess",
       price: 20,
       day: "Tuesday",
@@ -16,6 +28,7 @@ export default function ClassTable({ addClass, removeClass }) {
     },
     {
       className: "Bachata Shines/Styling",
+      classType: "Bachata",
       instructors: "Luis & Jess",
       price: 20,
       day: "Wednesday",
@@ -23,6 +36,7 @@ export default function ClassTable({ addClass, removeClass }) {
     },
     {
       className: "Salsa On2 Basics/Beginners",
+      classType: "Salsa",
       instructors: "Marco & Marylou",
       price: 20,
       day: "Thursday",
@@ -30,6 +44,23 @@ export default function ClassTable({ addClass, removeClass }) {
     },
     {
       className: "Salsa On2 Intermediate",
+      classType: "Salsa",
+      instructors: "Luis & Jess",
+      price: 20,
+      day: "Thursday",
+      time: "8:30 PM",
+    },
+    {
+      className: "Cha Cha Cha Basics/Beginners",
+      classType: "ChaCha",
+      instructors: "Luis & Jess",
+      price: 20,
+      day: "Thursday",
+      time: "7:30 PM",
+    },
+    {
+      className: "Cha Cha Cha Intermediate",
+      classType: "ChaCha",
       instructors: "Luis & Jess",
       price: 20,
       day: "Thursday",
@@ -40,6 +71,45 @@ export default function ClassTable({ addClass, removeClass }) {
   const packagePrices = {
     "All Access Monthly Membership": 100,
   };
+
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const isMatchingDay = (date, day, classType) => {
+    if (classType === "Salsa") {
+      return isNotLastThursday(date);
+    } else if (classType === "ChaCha") {
+      return isLastThursday(date);
+    }
+    const dayMap = {
+      Sunday: 0,
+      Monday: 1,
+      Tuesday: 2,
+      Wednesday: 3,
+      Thursday: 4,
+      Friday: 5,
+      Saturday: 6,
+    };
+    return date.getDay() === dayMap[day];
+  };
+  function isLastThursday(date) {
+    if (date.getDay() !== 4) return false; // 4 = Thursday
+
+    const nextWeek = new Date(date);
+    nextWeek.setDate(date.getDate() + 7);
+
+    return nextWeek.getMonth() !== date.getMonth(); // It's the last Thursday if the next Thursday is in the next month
+  }
+
+  function isNotLastThursday(date) {
+    const isThursday = date.getDay() === 4; // 4 = Thursday
+    if (!isThursday) return false;
+
+    const nextWeek = new Date(date);
+    nextWeek.setDate(date.getDate() + 7);
+
+    // If the next Thursday is still in the same month, it's *not* the last Thursday
+    return nextWeek.getMonth() === date.getMonth();
+  }
 
   return (
     <>
@@ -94,7 +164,7 @@ export default function ClassTable({ addClass, removeClass }) {
             </thead>
             <tbody>
               {classPrices.map(
-                ({ className, instructors, price, day, time }) => (
+                ({ className, classType, instructors, price, day, time }) => (
                   <tr key={className}>
                     <td className="px-6 py-4 border-t border-gray-200">
                       {className}
@@ -109,15 +179,38 @@ export default function ClassTable({ addClass, removeClass }) {
                       ${price}
                     </td>
                     <td className="px-6 py-4 border-t border-gray-200">
-                      <div className="flex flex-col sm:flex-row sm:gap-5">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <button className="px-4 py-2 bg-gray-200 rounded-md text-sm">
+                              {selectedDate
+                                ? format(selectedDate, "PPP")
+                                : "Pick Date"}
+                            </button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0">
+                            <Calendar
+                              mode="single"
+                              selected={selectedDate}
+                              onSelect={setSelectedDate}
+                              disabled={(date) =>
+                                !isMatchingDay(date, day, classType)
+                              }
+                              initialFocus
+                            />
+                          </PopoverContent>
+                        </Popover>
                         <button
+                          disabled={!selectedDate}
                           className="px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded-md"
-                          onClick={() => addClass(className, price)}
+                          onClick={() =>
+                            addClass(className, price, selectedDate)
+                          }
                         >
                           Add
                         </button>
                         <button
-                          className="mt-4 sm:mt-0 sm:ml-5 px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded-md"
+                          className="px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded-md"
                           onClick={() => removeClass(className)}
                         >
                           Remove

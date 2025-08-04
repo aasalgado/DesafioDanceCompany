@@ -93,7 +93,10 @@ export default function Stripe({
             {selectedClasses.map((item, index) => (
               <li key={index} className="flex justify-between">
                 <span>
-                  {item.className} - {format(item.date, "PPP")} - ${item.price}
+                  {/* {item.className} - {format(item.date, "PPP")} - ${item.price} */}
+                  {item.className}
+                  {item.date ? " - " + format(item.date, "PPP") : ""} - $
+                  {item.price}
                 </span>
               </li>
             ))}

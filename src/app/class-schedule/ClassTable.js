@@ -120,30 +120,66 @@ export default function ClassTable({ addClass, removeClass }) {
 
         {/* Mobile View List */}
         <div className="block sm:hidden">
-          {classPrices.map(({ className, instructors, price, day, time }) => (
-            <div key={className} className="border-b border-gray-300 py-4 px-2">
-              <div className="font-bold">{className}</div>
-              <div className="text-sm">Instructors: {instructors}</div>
-              <div className="text-sm">
-                {day} - {time}
+          {classPrices.map(
+            ({ className, classType, instructors, price, day, time }) => (
+              <div
+                key={className}
+                className="border-b border-gray-300 py-4 px-2"
+              >
+                <div className="font-bold">{className}</div>
+                <div className="text-sm">Instructors: {instructors}</div>
+                <div className="text-sm">
+                  {day} - {time}
+                </div>
+                <div className="text-sm">Price: ${price}</div>
+                <div className="mt-3 flex flex-col gap-3">
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <button className="px-4 py-2 bg-gray-200 rounded-md text-sm">
+                        {selectedDates[className]
+                          ? format(selectedDates[className], "PPP")
+                          : "Pick Date"}
+                      </button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0">
+                      <Calendar
+                        mode="single"
+                        selected={selectedDates[className]}
+                        onSelect={(date) =>
+                          setSelectedDates((prev) => ({
+                            ...prev,
+                            [className]: date,
+                          }))
+                        }
+                        disabled={(date) =>
+                          !isMatchingDay(date, day, classType)
+                        }
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+
+                  <div className="flex justify-between gap-2">
+                    <button
+                      disabled={!selectedDates[className]}
+                      className="flex-1 px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded-md"
+                      onClick={() =>
+                        addClass(className, price, selectedDates[className])
+                      }
+                    >
+                      Add
+                    </button>
+                    <button
+                      className="flex-1 px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded-md"
+                      onClick={() => removeClass(className)}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="text-sm">Price: ${price}</div>
-              <div className="mt-2 flex justify-between">
-                <button
-                  className="px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded-md"
-                  onClick={() => addClass(className, price)}
-                >
-                  Add Class
-                </button>
-                <button
-                  className="px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded-md"
-                  onClick={() => removeClass(className)}
-                >
-                  Remove Class
-                </button>
-              </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
 
         {/* Tablet and larger - Table view */}

@@ -53,7 +53,7 @@ export default function ClassTable({ addClass, removeClass }) {
     {
       className: "Cha Cha Cha Basics/Beginners",
       classType: "ChaCha",
-      instructors: "Luis & Jess",
+      instructors: "Marco & Marylou",
       price: 20,
       day: "Thursday",
       time: "7:30 PM",

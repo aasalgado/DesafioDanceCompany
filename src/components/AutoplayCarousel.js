@@ -74,7 +74,7 @@ const BannerCarousel = () => {
       <Carousel
         plugins={[autoplayPlugin.current]}
         opts={{ loop: true }}
-        className="h-[47dvh] sm:h-auto"
+        className="h-[24dvh] sm:h-auto"
       >
         {/* Carousel container, using flex and controlling item width -- bg-primary */}
         <CarouselContent>

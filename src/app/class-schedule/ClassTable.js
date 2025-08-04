@@ -72,7 +72,7 @@ export default function ClassTable({ addClass, removeClass }) {
     "All Access Monthly Membership": 100,
   };
 
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDates, setSelectedDates] = useState({});
 
   const isMatchingDay = (date, day, classType) => {
     if (classType === "Salsa") {
@@ -183,16 +183,21 @@ export default function ClassTable({ addClass, removeClass }) {
                         <Popover>
                           <PopoverTrigger asChild>
                             <button className="px-4 py-2 bg-gray-200 rounded-md text-sm">
-                              {selectedDate
-                                ? format(selectedDate, "PPP")
+                              {selectedDates[className]
+                                ? format(selectedDates[className], "PPP")
                                 : "Pick Date"}
                             </button>
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0">
                             <Calendar
                               mode="single"
-                              selected={selectedDate}
-                              onSelect={setSelectedDate}
+                              selected={selectedDates[className]}
+                              onSelect={(date) =>
+                                setSelectedDates((prev) => ({
+                                  ...prev,
+                                  [className]: date,
+                                }))
+                              }
                               disabled={(date) =>
                                 !isMatchingDay(date, day, classType)
                               }
@@ -201,10 +206,10 @@ export default function ClassTable({ addClass, removeClass }) {
                           </PopoverContent>
                         </Popover>
                         <button
-                          disabled={!selectedDate}
+                          disabled={!selectedDates[className]}
                           className="px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white rounded-md"
                           onClick={() =>
-                            addClass(className, price, selectedDate)
+                            addClass(className, price, selectedDates[className])
                           }
                         >
                           Add

@@ -10,6 +10,7 @@ export default function ClassSchedule() {
 
   // Add a class to the selectedClasses array
   const addClass = (className, price, date) => {
+    console.log("date", date);
     setSelectedClasses((prevClasses) => [
       ...prevClasses,
       { className, price, date }, // Add new class to the selected classes array

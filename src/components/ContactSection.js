@@ -7,9 +7,10 @@ export default function ContactSection() {
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-6">
         {/* Left Column (50% width on larger screens) */}
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
+          <h2 className="text-3xl font-bold tracking-tight">Get In Touch</h2>
           <p className="text-muted-foreground">
             Have questions or want to learn more about Desafio Dance Company?
+            Tell us your dance goals to help us move you in the right direction.
             Fill out the form below and we&apos;ll get back to you as soon as
             possible.
           </p>

@@ -21,6 +21,13 @@ export default function Header() {
             Home
           </Link>
           <Link
+            href="class-schedule"
+            className="text-sm font-medium hover:text-primary"
+            prefetch={false}
+          >
+            Class Schedule
+          </Link>
+          <Link
             href="instructors"
             className="text-sm font-medium hover:text-primary"
             prefetch={false}
@@ -32,14 +39,7 @@ export default function Header() {
             className="text-sm font-medium hover:text-primary"
             prefetch={false}
           >
-            Contact
-          </Link>
-          <Link
-            href="class-schedule"
-            className="text-sm font-medium hover:text-primary"
-            prefetch={false}
-          >
-            Class Schedule
+            Contact Us
           </Link>
         </nav>
         <Sheet>
@@ -61,6 +61,13 @@ export default function Header() {
                 Home
               </Link>
               <Link
+                href="class-schedule"
+                className="text-sm font-medium text-white hover:text-primary"
+                prefetch={false}
+              >
+                Class Schedule
+              </Link>
+              <Link
                 href="instructors"
                 className="text-sm font-medium text-white hover:text-primary"
                 prefetch={false}
@@ -72,14 +79,7 @@ export default function Header() {
                 className="text-sm font-medium text-white hover:text-primary"
                 prefetch={false}
               >
-                Contact
-              </Link>
-              <Link
-                href="class-schedule"
-                className="text-sm font-medium text-white hover:text-primary"
-                prefetch={false}
-              >
-                Class Schedule
+                Contact Us
               </Link>
             </div>
           </SheetContent>

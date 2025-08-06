@@ -98,6 +98,16 @@ export default function Reviews() {
             </Link>
           </Card>
         </div>
+        <div className="text-center mt-8">
+          <Link
+            href="https://www.google.com/search?sca_esv=38b8b35f2fe0540c&sxsrf=AE3TifNYHKuFQ7qyJ5sB-jNJU6Fp2ocLHQ:1754450521773&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E-epgQwOHoLmPTAXECP7lk2p64NVtnDaxMvjWrgw5qdGQNaU8-p5pMSRTewmHKF4xmok_0zaR0scBIc52JmkYmc2n4uawgpwekjudJu8J6CuhB_P7Q%3D%3D&q=Desafio+Dance+Company+Reviews&sa=X&ved=2ahUKEwjGjIHBnfWOAxXxBEQIHW8_FwoQ0bkNegQIMRAE&biw=1330&bih=813&dpr=1"
+            target="_blank"
+            prefetch={false}
+            className="text-muted-foreground underline hover:text-primary transition"
+          >
+            View More
+          </Link>
+        </div>
       </div>
     </section>
   );

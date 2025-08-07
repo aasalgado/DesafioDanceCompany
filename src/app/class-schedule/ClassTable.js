@@ -66,6 +66,14 @@ export default function ClassTable({ addClass, removeClass }) {
       day: "Thursday",
       time: "8:30 PM",
     },
+    {
+      className: "Testing",
+      classType: "ChaCha",
+      instructors: "Luis & Jess",
+      price: 0.5,
+      day: "Friday",
+      time: "8:30 PM",
+    },
   ];
 
   const packagePrices = {

@@ -32,7 +32,12 @@ export default function Stripe({
   const [finalAmount, setFinalAmount] = useState(totalAmount);
   const [errorMessage, setErrorMessage] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false); // Track discount applied
-  console.log("selectedDates", selectedClasses);
+  const [userInfo, setUserInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
   // Sync finalAmount with totalAmount whenever totalAmount or selectedClasses changes
   useEffect(() => {
     let amount = 0;
@@ -75,6 +80,15 @@ export default function Stripe({
 
   const isAmountValid = finalAmount > 0;
 
+  const isValidEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const isFormValid =
+    userInfo.firstName.trim() !== "" &&
+    userInfo.lastName.trim() !== "" &&
+    isValidEmail(userInfo.email);
+
   return (
     <main className="max-w-6xl mx-auto p-10 text-white text-center border m-10 rounded-md bg-gradient-to-tr from-white to-black">
       <div className="mb-10">
@@ -93,7 +107,6 @@ export default function Stripe({
             {selectedClasses.map((item, index) => (
               <li key={index} className="flex justify-between">
                 <span>
-                  {/* {item.className} - {format(item.date, "PPP")} - ${item.price} */}
                   {item.className}
                   {item.date ? " - " + format(item.date, "PPP") : ""} - $
                   {item.price}
@@ -104,26 +117,61 @@ export default function Stripe({
         </div>
       )}
 
-      {/* Discount Code Input */}
+      {/* Add Inputs for First Name, Last Name, and email here in a column*/}
       {isAmountValid && (
-        <div className="my-2">
+        <div className="my-8 text-left max-w-md mx-auto space-y-4">
+          {/* First Name */}
           <input
             type="text"
-            placeholder="Enter discount code"
-            className="px-4 py-2 border rounded-md text-black"
-            value={discountCode}
-            onChange={(e) => setDiscountCode(e.target.value)}
+            value={userInfo.firstName}
+            onChange={(e) =>
+              setUserInfo((prev) => ({ ...prev, firstName: e.target.value }))
+            }
+            className="w-full px-4 py-2 rounded-md text-black border"
+            placeholder="First Name (required)"
           />
-          <button
-            onClick={applyDiscount}
-            className="mt-2 ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
-          >
-            Apply Discount
-          </button>
+
+          {/* Last Name */}
+          <input
+            type="text"
+            value={userInfo.lastName}
+            onChange={(e) =>
+              setUserInfo((prev) => ({ ...prev, lastName: e.target.value }))
+            }
+            className="w-full px-4 py-2 rounded-md text-black border"
+            placeholder="Last Name (required)"
+          />
+
+          {/* Email */}
+          <input
+            type="email"
+            value={userInfo.email}
+            onChange={(e) =>
+              setUserInfo((prev) => ({ ...prev, email: e.target.value }))
+            }
+            className="w-full px-4 py-2 rounded-md text-black border"
+            placeholder="Email (required)"
+          />
+
+          {/* Discount Code */}
+          <div className="flex gap-2">
+            <input
+              type="text"
+              placeholder="Discount Code"
+              className="flex-1 px-4 py-2 border rounded-md text-black"
+              value={discountCode}
+              onChange={(e) => setDiscountCode(e.target.value)}
+            />
+            <button
+              onClick={applyDiscount}
+              className="w-1/3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+            >
+              Apply
+            </button>
+          </div>
+          {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
         </div>
       )}
-
-      {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
 
       {/* Show Stripe Payment Form */}
       {isAmountValid && finalAmount && (
@@ -136,7 +184,11 @@ export default function Stripe({
           }}
         >
           {/* Your CheckoutPage component */}
-          <CheckoutPage amount={finalAmount} />
+          <CheckoutPage
+            amount={finalAmount}
+            userInfo={userInfo}
+            isFormValid={isFormValid}
+          />
         </Elements>
       )}
     </main>

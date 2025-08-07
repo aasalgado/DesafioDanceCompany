@@ -8,7 +8,17 @@ import {
 } from "@stripe/react-stripe-js";
 import convertToSubcurrency from "../lib/convertToSubcurrency";
 
-const CheckoutPage = ({ amount }: { amount: number }) => {
+interface CheckoutPageProps {
+  amount: number;
+  userInfo: {
+    firstName: string;
+    lastName: string;
+    email: string;
+  };
+  isFormValid: boolean;
+}
+
+const CheckoutPage = ({ amount, userInfo, isFormValid }: CheckoutPageProps) => {
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState<string>();
@@ -91,7 +101,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       {errorMessage && <div>{errorMessage}</div>}
 
       <button
-        disabled={!stripe || loading}
+        disabled={!stripe || loading || !isFormValid}
         className="text-white w-full p-5 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
       >
         {!loading ? `Pay $${amount}` : "Processing..."}

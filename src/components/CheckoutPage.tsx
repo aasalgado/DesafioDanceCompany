@@ -31,7 +31,14 @@ const CheckoutPage = ({ amount, userInfo, isFormValid }: CheckoutPageProps) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: convertToSubcurrency(amount) }),
+      body: JSON.stringify({
+        amount: convertToSubcurrency(amount),
+        customerInfo: {
+          firstName: userInfo.firstName,
+          lastName: userInfo.lastName,
+          email: userInfo.email,
+        },
+      }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
@@ -63,7 +70,9 @@ const CheckoutPage = ({ amount, userInfo, isFormValid }: CheckoutPageProps) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `${origin}/payment-success?amount=${amount}`,
+        return_url: `${origin}/payment-success?amount=${amount}&firstName=${encodeURIComponent(
+          userInfo.firstName
+        )}&email=${encodeURIComponent(userInfo.email)}`,
       },
     });
 

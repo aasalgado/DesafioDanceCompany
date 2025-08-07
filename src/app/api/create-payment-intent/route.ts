@@ -6,11 +6,29 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(request: NextRequest) {
   try {
-    const { amount } = await request.json();
+    const { amount, customerInfo } = await request.json();
+    const { firstName, lastName, email } = await customerInfo.json();
+
+    const existingCustomers = await stripe.customers.list({
+      email: customerInfo.email,
+      limit: 1, // only need the first match
+    });
+
+    let customer;
+    if (existingCustomers.data.length > 0) {
+      customer = existingCustomers.data[0];
+    } else {
+      customer = await stripe.customers.create({
+        name: `${firstName} ${lastName}`,
+        email: email,
+      });
+    }
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amount,
       currency: "usd",
+      customer: customer.id,
+      receipt_email: email,
       automatic_payment_methods: { enabled: true },
     });
 

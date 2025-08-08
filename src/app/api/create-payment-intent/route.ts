@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 export async function POST(request: NextRequest) {
   try {
     const { amount, customerInfo } = await request.json();
-    const { firstName, lastName, email } = await customerInfo.json();
+    const { firstName, lastName, email } = customerInfo;
 
     const existingCustomers = await stripe.customers.list({
       email: customerInfo.email,

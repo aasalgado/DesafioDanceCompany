@@ -42,7 +42,7 @@ const CheckoutPage = ({ amount, userInfo, isFormValid }: CheckoutPageProps) => {
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, [amount]);
+  }, [amount, userInfo, isFormValid]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

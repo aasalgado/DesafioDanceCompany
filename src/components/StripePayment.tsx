@@ -91,7 +91,7 @@ export default function Stripe({
 
   return (
     <main className="max-w-6xl mx-auto p-10 text-white text-center border m-10 rounded-md bg-gradient-to-tr from-white to-black">
-      <div className="mb-10">
+      <div className="mb-5">
         <h2 className="text-2xl">
           {isAmountValid
             ? `Proceed to Payment: $${finalAmount}`
@@ -101,7 +101,7 @@ export default function Stripe({
 
       {/* Display selected classes and their prices */}
       {selectedClasses.length > 0 && (
-        <div className="mt-5">
+        <div className="mt-2">
           <h2 className="text-xl font-bold">Selected Classes:</h2>
           <ul className="space-y-2">
             {selectedClasses.map((item, index) => (
@@ -173,8 +173,14 @@ export default function Stripe({
         </div>
       )}
 
+      {isAmountValid && !isFormValid && (
+        <p className="text-white text-center mt-4">
+          Please fill in your name and email to continue with payment.
+        </p>
+      )}
+
       {/* Show Stripe Payment Form */}
-      {isAmountValid && finalAmount && (
+      {isAmountValid && finalAmount && isFormValid && (
         <Elements
           stripe={stripePromise}
           options={{

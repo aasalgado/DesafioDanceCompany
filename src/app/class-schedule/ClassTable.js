@@ -37,7 +37,7 @@ export default function ClassTable({ addClass, removeClass }) {
     {
       className: "Salsa On2 Basics/Beginners",
       classType: "Salsa",
-      instructors: "Marco & Marylou",
+      instructors: "Luis & Jess",
       price: 20,
       day: "Thursday",
       time: "7:30 PM",
@@ -54,7 +54,7 @@ export default function ClassTable({ addClass, removeClass }) {
       className: "Cha Cha Cha Basics/Beginners",
       classSubtitle: "(Last Thursday Of Every Month)",
       classType: "ChaCha",
-      instructors: "Marco & Marylou",
+      instructors: "Luis & Jess",
       price: 20,
       day: "Thursday",
       time: "7:30 PM",

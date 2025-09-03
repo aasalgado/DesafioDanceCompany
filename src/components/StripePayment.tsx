@@ -48,7 +48,7 @@ export default function Stripe({
   }, [selectedClasses]); // This will run whenever selectedClasses changes
 
   // Define available discount codes
-  const availableDiscountCodes = ["DISCOUNT10", "SUMMER20", "WELCOME30"];
+  const availableDiscountCodes = ["REVIEW", "SUMMER20", "WELCOME30"];
 
   // Apply discount if code is valid
   const applyDiscount = () => {
@@ -61,7 +61,7 @@ export default function Stripe({
       let discount = 0;
 
       // Example discount logic based on code
-      if (discountCode === "DISCOUNT10") {
+      if (discountCode === "REVIEW") {
         discount = finalAmount * 0.1; // 10% discount
       } else if (discountCode === "SUMMER20") {
         discount = finalAmount * 0.2; // 20% discount
@@ -169,7 +169,12 @@ export default function Stripe({
               Apply
             </button>
           </div>
-          {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
+          <div className="min-h-[40px] flex flex-col items-center justify-center space-y-1">
+            {discountApplied && !errorMessage && (
+              <p className="text-green-500">Discount Applied!!</p>
+            )}
+            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+          </div>
         </div>
       )}
 

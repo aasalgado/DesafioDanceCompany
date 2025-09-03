@@ -27,7 +27,7 @@ export default function ClassTable({ addClass, removeClass }) {
       time: "8:30 PM",
     },
     {
-      className: "Bachata Shines/Styling",
+      className: "Open Level Cumbia",
       classType: "Bachata",
       instructors: "Luis & Jess",
       price: 20,
@@ -52,6 +52,7 @@ export default function ClassTable({ addClass, removeClass }) {
     },
     {
       className: "Cha Cha Cha Basics/Beginners",
+      classSubtitle: "(Last Thursday Of Every Month)",
       classType: "ChaCha",
       instructors: "Marco & Marylou",
       price: 20,
@@ -60,6 +61,7 @@ export default function ClassTable({ addClass, removeClass }) {
     },
     {
       className: "Cha Cha Cha Intermediate",
+      classSubtitle: "(Last Thursday Of Every Month)",
       classType: "ChaCha",
       instructors: "Luis & Jess",
       price: 20,
@@ -121,12 +123,30 @@ export default function ClassTable({ addClass, removeClass }) {
         {/* Mobile View List */}
         <div className="block sm:hidden">
           {classPrices.map(
-            ({ className, classType, instructors, price, day, time }) => (
+            ({
+              className,
+              classSubtitle,
+              classType,
+              instructors,
+              price,
+              day,
+              time,
+            }) => (
               <div
                 key={className}
                 className="border-b border-gray-300 py-4 px-2"
               >
-                <div className="font-bold">{className}</div>
+                <div className="font-bold">
+                  {className}
+                  {classSubtitle && (
+                    <>
+                      <br />
+                      <span className="text-gray-500 text-sm">
+                        {classSubtitle}
+                      </span>
+                    </>
+                  )}
+                </div>
                 <div className="text-sm">Instructors: {instructors}</div>
                 <div className="text-sm">
                   {day} - {time}
@@ -200,10 +220,26 @@ export default function ClassTable({ addClass, removeClass }) {
             </thead>
             <tbody>
               {classPrices.map(
-                ({ className, classType, instructors, price, day, time }) => (
+                ({
+                  className,
+                  classSubtitle,
+                  classType,
+                  instructors,
+                  price,
+                  day,
+                  time,
+                }) => (
                   <tr key={className}>
                     <td className="px-6 py-4 border-t border-gray-200">
                       {className}
+                      {classSubtitle && (
+                        <>
+                          <br />
+                          <span className="text-gray-500 text-sm">
+                            {classSubtitle}
+                          </span>
+                        </>
+                      )}
                     </td>
                     <td className="px-6 py-4 border-t border-gray-200">
                       {instructors}

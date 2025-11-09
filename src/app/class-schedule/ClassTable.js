@@ -71,7 +71,9 @@ export default function ClassTable({ addClass, removeClass }) {
   ];
 
   const packagePrices = {
-    "All Access Monthly Membership": 100,
+    "5 - Class Pass": 80,
+    "10 - Class Pass": 144,
+    "20 - Class Pass": 250,
   };
 
   const [selectedDates, setSelectedDates] = useState({});
